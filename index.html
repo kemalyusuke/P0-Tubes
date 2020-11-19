@@ -18,10 +18,21 @@
                 00:00
               </div>
             <input id="range" class="level" type="range" value="0" min="0">
-            <div class="buttons">
+            <div class="sideControl">
+                <button id="shuffle" onclick="shuffle()"><img src="shuffle.png"></button>
+                <button id="repeat" onclick="repeat()"><img id="repeat_img" src="repeat.png"></button>
+
+            </div>
+            <div class="mainControl">
                 <button id="pre" onclick="prevSong()"><img src="rewind.png"></button>
-                <button id="play" onclick="playButton()"><img id="play_img" src="play.png"></button>
+                <button id="play" onclick="playButton()"><img id="play_img" src="pause.png"></button>
                 <button id="next" onclick="nextSong()"><img src="fast-forward.png"></button>
+            </div>
+            <div class="volumeControl">
+                <button id="volumeDown" onclick="volumeDown()"><img src="volume_down.png"></button>
+                <input id="volume" class="level" type="range" value="100" min="0" max = 100>
+                <button id="volumeUp" onclick="volumeUp()"><img src="volume_plus.png"></button>
+
             </div>
             
         </div>

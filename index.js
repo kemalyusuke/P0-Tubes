@@ -1,19 +1,27 @@
 musics = ["music1.mp3","music2.mp3","music3.mp3"]
+shuffledMusic = []
 let play_btn = document.getElementById("play");
 let prev_btn = document.getElementById("pre");
 let next_btn = document.getElementById("next");
 let range = document.getElementById("range");
+let volume = document.getElementById("volume");
 let play_img = document.getElementById("play_img")
 let currentTime = document.getElementById("time")
-let total_time = 0;
+let shuffle_btn = document.getElementById("shuffle")
+let repeat_btn = document.getElementById("repeat")
+let repeat_img = document.getElementById("repeat_img")
 let song = new Audio();
 let currentSong = 0;
 window.onload = playSong;
 
 function playSong(){
-    song.src = musics[currentSong];
+    if(isShuffled){
+        song.src = shuffledMusic[currentSong];
+        console.log(`play shuffle`)
+    } else {
+        song.src = musics[currentSong];
+    }
     song.play();
-    range.max = total_time;
 }
 
 function playButton() {
@@ -38,7 +46,11 @@ song.addEventListener("timeupdate", function() {
 });
 
 song.addEventListener('ended',function(){
-    nextSong();
+    if (!isRepeated){
+        nextSong();
+    } else {
+        playSong();
+    }
 })
 
 
@@ -84,3 +96,59 @@ function prevSong() {
     playSong();
     play_img.src = "pause.png";
 }
+
+function shuffleArray(array) {
+
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array
+}
+
+let isShuffled = false
+function shuffle(){
+    if(isShuffled){
+        isShuffled = false
+        shuffle_btn.className = ""
+    } else {
+        isShuffled = true
+        shuffle_btn.className += "clicked"
+        shuffledMusic = shuffleArray(musics)
+        console.log(shuffledMusic)
+    }
+}
+let isRepeated = false
+function repeat(){
+    if(isRepeated){
+        isRepeated = false
+        repeat_img.src = "repeat.png";
+    } else {
+        isRepeated = true
+        repeat_img.src = "repeat1.png";
+    }
+}
+
+function volumeDown() {
+    song.volume -= 0.2;
+}
+  
+function volumeUp() {
+    song.volume += 0.2;
+}
+  
+// fix the speaker muted button
+  
+// let volumeUp = document.querySelector(".volume-up");
+
+volume.addEventListener("change",function(){
+    song.volume = volume.value/100
+    console.log(volume.value)
+})
+
+song.addEventListener("volumechange", function() {
+    volume.value = 100 * song.volume
+});
+  

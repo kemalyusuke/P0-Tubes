@@ -5,7 +5,7 @@
     outline: 0;
 }
 body{
-    background-color: rgba(123, 110, 41, 0.3);
+    background-color: rgb(17, 17, 16);
 }
 .container{
     position: absolute;
@@ -16,17 +16,18 @@ body{
     width: 300px;
     border-radius: 8px;
     background-color: #E1E6EC;
-    box-shadow: 5px 5px 11px #A2B1C6 , -5px -5px 11px  #fff  ;
+    box-shadow: -5px -5px 20px rgba(18, 75, 32, 0.479) , 5px 5px 11px  #c3e7ccda;
     text-align: center;
     font-family: 'Nunito', sans-serif;
     
 }
 .container #time {
-    font-size: 1.5rem;
-    margin: 12px 0 12px 0;
+    font-size: 1rem;
+    margin: 5px 0;
 }
 .wrapper{
     position: relative;
+    margin-bottom: 20px;
 }
 .container img{
     width: 80%;
@@ -34,7 +35,7 @@ body{
 }
 .container h1{
     font-size: 1.5rem;
-    margin: 12px 0 12px 0;
+    margin: 12px 0;
 }
 .buttons{
     display: inline-block;
@@ -43,7 +44,7 @@ body{
     margin: 0;
     text-align: center;
 }
-.buttons button{
+.mainControl button{
     position: relative;
     width: 50px;
     height: 50px;
@@ -54,13 +55,70 @@ body{
     margin: 10px 9px;
     border: none;
     box-shadow: 2px 2px 5px #A2B1C6 , -2px -2px 11px  #fff  ;
-    /*background:linear-gradient(-45deg,#a2b1c6,#fff);*/
 }
-.buttons button:active{
+
+
+.mainControl button:active{
     background: #E1E6EC;
     box-shadow: inset 2px 2px 5px #A2B1C6 , -2px -2px 11px  #fff  ;
 }
-.buttons button img{
+.mainControl button img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 42%;
+    height: 42%;
+}
+.sideControl button{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    padding: 16px;
+    border-radius: 45px;
+    background-color: #E1E6EC;
+    text-align: left;
+    margin: 5px 5px;
+    border: none;
+    box-shadow: 1px 1px 2.5px #A2B1C6 , -1px -1px 5.5px  #fff  ;
+}
+.sideControl button:active{
+    background: #E1E6EC;
+    box-shadow: inset 2px 2px 5px #A2B1C6 , -2px -2px 11px  #fff  ;
+}
+
+
+.sideControl .clicked{
+    background: #E1E6EC;
+    box-shadow: inset 2px 2px 5px #A2B1C6 , -2px -2px 11px  #fff  ;
+}
+.sideControl button img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 42%;
+    height: 42%;
+}
+.volumeControl button{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 45px;
+    background-color: #E1E6EC;
+    text-align: left;
+    margin: 0 5px;
+    border: none;
+    box-shadow: 1px 1px 2.5px #A2B1C6 , -1px -1px 5.5px  #fff  ;
+}
+
+
+.volumeControl button:active{
+    background: #E1E6EC;
+    box-shadow: inset 2px 2px 5px #A2B1C6 , -2px -2px 11px  #fff  ;
+}
+.volumeControl button img{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -82,11 +140,32 @@ body{
     -webkit-appearance: none;
     background-color: #A2B1C6;
     box-shadow: 2px 2px 5px #A2B1C6 , -2px -2px 5px  #fff  ;
-    width: 15px; /* Set a specific slider handle width */
-    height: 15px; /* Slider handle height */
+    width: 25px; 
+    height: 10px; 
     border-radius: 90px;
 }
 .level::-moz-range-thumb{
+    width: 50px;
+    height: 50px;
+}
+.volumeControl .level{
+    width: 60%;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #E1E6EC;
+    box-shadow: 2px 2px 5px #A2B1C6 , -2px -2px 11px  #fff  ;
+    border-radius: 90px;
+    margin: 10px 0;
+}
+.volumeControl .level::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background-color: #A2B1C6;
+    box-shadow: 2px 2px 5px #A2B1C6 , -2px -2px 5px  #fff  ;
+    width: 25px; 
+    height: 10px; 
+    border-radius: 90px;
+}
+.volumeControl .level::-moz-range-thumb{
     width: 50px;
     height: 50px;
 }
